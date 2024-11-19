@@ -7,6 +7,7 @@ Hosted on [itch.io]()
 
 ## Description
 
+2D pokemon-inspired rpg with geometric themes focused on connection and relationships. Communicate with people and creatures, care for travel companions, and choose one of a number of objectives, or do them all: championship, reunion, savior, gangster.
 
 ## Complete Setup
 
