@@ -2,7 +2,7 @@
 
 By: Sm Kou
 
-Hi-fi prototype: pokemon-inspired RPG game for nephew
+Hi-fi prototype: pokemon-inspired RPG game for nephew, where relationships and communication are the main mechanics
 Hosted on [itch.io]()
 
 ## Description
