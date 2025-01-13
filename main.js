@@ -49,6 +49,13 @@ const move = {
     right: document.getElementById("rgt-btn")
 }
 
+const actions = {
+    a: document.getElementById("a-btn"),
+    b: document.getElementById("b-btn"),
+    c: document.getElementById("c-btn"),
+    i: document.getElementById("i-btn")
+}
+
 /*  Actions
     1. Confirm / Activate
        - Ask
@@ -60,6 +67,11 @@ const move = {
        - Inventory
        - Guide [language manual]
 */
+
+move.up.addEventListener("pointerdown", () => {})
+move.down.addEventListener("pointerdown", () => {})
+move.left.addEventListener("pointerdown", () => {})
+move.right.addEventListener("pointerdown", )
 
 document.getElementById("toggle-banner").addEventListener('click', () => {
     const banner = document.getElementById("game-banner")
