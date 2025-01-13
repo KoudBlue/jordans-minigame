@@ -71,7 +71,7 @@ const actions = {
 move.up.addEventListener("pointerdown", () => {})
 move.down.addEventListener("pointerdown", () => {})
 move.left.addEventListener("pointerdown", () => {})
-move.right.addEventListener("pointerdown", )
+move.right.addEventListener("pointerdown", () => {})
 
 document.getElementById("toggle-banner").addEventListener('click', () => {
     const banner = document.getElementById("game-banner")
