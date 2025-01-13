@@ -109,6 +109,20 @@
             font-size: 28px;
         }
 
+        #game-info {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
         .loader {
             display: inline-flex;
             width: 90px;
@@ -144,9 +158,21 @@
             0%{rotate:  25.7deg}
             to{rotate: -25.7deg}
         }
+
+        .loading {
+            position: absolute;
+            bottom: 48px;
+            left: calc((100% - 180px) / 2);
+            width: 180px;
+            text-align: center;
+        }
     </style>
   </head>
   <body>
+    <article id="game-info">
+        <div class="loader"></div>
+        <p class="loading">Game loading...</p>
+    </article>
     <header>
         <section id="game-banner">
             <h1>Jordan's Minigame</h1>
@@ -154,9 +180,6 @@
         <div id="toggle-banner"></div>
     </header>
     <main>
-        <section id="loader-message">
-            <div class="loader"></div>
-        </section>
         <section id="game"></section>
         <section id="contacts"></section>
         <section id="inventory"></section>
