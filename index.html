@@ -33,6 +33,12 @@
             border-bottom: 2px solid #aaa;
         }
 
+        #game,
+        #contacts,
+        #inventory {
+            display: hidden;
+        }
+
         footer {
             position: absolute;
             bottom: 0;
@@ -78,23 +84,24 @@
     <main>
         <section id="loader-message"></section>
         <section id="game"></section>
+        <section id="contacts"></section>
         <section id="inventory"></section>
     </main>
     <footer>
         <nav>
             <div class="spacer"></div>
-            <input type="button" value="&#8593;" title="up" accesskey="w" />
+            <input id="up-btn" type="button" value="&#8593;" title="up" accesskey="w" />
             <div class="spacer"></div>
-            <input type="button" value="&#8592;" title="left" accesskey="a" />
+            <input id="lft-btn" type="button" value="&#8592;" title="left" accesskey="a" />
             <div class="spacer"></div>
-            <input type="button" value="&#8594;" title="right" accesskey="d" />
+            <input id="rgt-btn" type="button" value="&#8594;" title="right" accesskey="d" />
             <div class="spacer"></div>
-            <input type="button" value="&#8595;" title="down" accesskey="s" />
+            <input id="dn-btn" type="button" value="&#8595;" title="down" accesskey="s" />
             <div class="spacer"></div>
         </nav>
         <section id="user-input">
-            <div class=""></div>
-            <div class=""></div>
+            <div class="actions"></div>
+            <div class="lang"></div>
         </section>
     </footer>
     <script type="module" src="/main.js"></script>
