@@ -16,3 +16,11 @@ const move_btn = {
        - Inventory
        - Guide [language manual]
 */
+
+document.getElementById("toggle-banner").addEventListener('click', () => {
+    const banner = document.getElementById("game-banner")
+    if (banner.style.display === "none")
+        banner.style.display = "block"
+    else
+        banner.style.display = "none"
+})
