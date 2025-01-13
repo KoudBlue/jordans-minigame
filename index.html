@@ -4,10 +4,91 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Jordan's Minigame</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            font-family: sans-serif;
+        }
+
+        *::-webkit-scrollbar { display: none }
+
+        body {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            border: 0;
+            overflow: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            display: flex;
+            background: #333;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: repeat(3, 42px);
+            grid-template-rows: repeat(3, 42px);
+        }
+
+        nav input {
+            padding-bottom: 9px;
+            border: 2px solid #aaa;
+            color: #000;
+            background: #eee;
+            box-shadow: inset -2px -3px #000a;
+            font-size: 28px;
+        }
+
+        nav input:active,
+        nav input:hover,
+        nav input.active {
+            box-shadow: inset 2px 3px #000, inset -2px -3px 4px #000a;
+        }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header>
+        <section>
+            <h1>Jordan's Minigame</h1>
+        </section>
+        <div class="top-sensor"></div>
+    </header>
+    <main>
+        <section id="loader-message"></section>
+        <section id="game"></section>
+        <section id="inventory"></section>
+    </main>
+    <footer>
+        <nav>
+            <div class="spacer"></div>
+            <input type="button" value="&#8593;" title="up" accesskey="w" />
+            <div class="spacer"></div>
+            <input type="button" value="&#8592;" title="left" accesskey="a" />
+            <div class="spacer"></div>
+            <input type="button" value="&#8594;" title="right" accesskey="d" />
+            <div class="spacer"></div>
+            <input type="button" value="&#8595;" title="down" accesskey="s" />
+            <div class="spacer"></div>
+        </nav>
+        <div class="user-input"></div>
+    </footer>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
