@@ -15,8 +15,11 @@ const update_game = (prop) => {
     game[prop] = !game[prop]
     switch (prop) {
         case "loaded":
+            const game_info = document.getElementById("game-info")
             if (game[prop])
-                document.getElementById("game-info").style.display = "none"
+                game_info.style.display = "none"
+            else
+                game_info.style.display = "block"
             break;
         case "autosave":
             if (game[prop]) {
@@ -68,11 +71,6 @@ const actions = {
        - Guide [language manual]
 */
 
-move.up.addEventListener("pointerdown", () => {})
-move.down.addEventListener("pointerdown", () => {})
-move.left.addEventListener("pointerdown", () => {})
-move.right.addEventListener("pointerdown", () => {})
-
 document.getElementById("toggle-banner").addEventListener('click', () => {
     const banner = document.getElementById("game-banner")
     if (banner.style.display === "none")
@@ -80,5 +78,37 @@ document.getElementById("toggle-banner").addEventListener('click', () => {
     else
         banner.style.display = "none"
 })
+
+/*  When player presses button or key:
+    - press and hold move button/key: continuous movement
+    - press action button/key: toggle
+
+    Press: pointerdown
+    Release: pointerup
+*/
+
+move.up.addEventListener("pointerdown", () => {})
+move.up.addEventListener("pointerup", () => {})
+
+move.down.addEventListener("pointerdown", () => {})
+move.down.addEventListener("pointerup", () => {})
+
+move.left.addEventListener("pointerdown", () => {})
+move.left.addEventListener("pointerup", () => {})
+
+move.right.addEventListener("pointerdown", () => {})
+move.right.addEventListener("pointerup", () => {})
+
+actions.a.addEventListener("pointerdown", () => {})
+actions.a.addEventListener("pointerup", () => {})
+
+actions.b.addEventListener("pointerdown", () => {})
+actions.b.addEventListener("pointerup", () => {})
+
+actions.c.addEventListener("pointerdown", () => {})
+actions.c.addEventListener("pointerup", () => {})
+
+actions.i.addEventListener("pointerdown", () => {})
+actions.i.addEventListener("pointerup", () => {})
 
 update_game("loaded")
