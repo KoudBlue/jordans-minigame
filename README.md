@@ -11,6 +11,42 @@ Hosted on [itch.io]()
 
 ## Prototypes
 
+1.  Player in bedroom
+    Explore / Exit
+    Player in living area
+    - mother
+    - furniture
+
+2.  Player engages mother
+    - Open [object]
+    - Craft [object]
+    - Exchange => offer/request/trade
+
+        Player can view inventory
+        - drop [item]
+        - pick-up [item]
+        - use [item]
+        - equip [item]
+        NOT: party, tokens
+
+        Player can view contacts
+        - tab: [entity] profile
+        - tab: [entity] rel stats
+        - tab: [entity] skills
+
+    Player experiences nat. disaster
+
+    2b. Mother engages player
+        - Ask
+        - Answer
+
+        Communication
+        - eyes
+        - objects
+        - actions
+        - schedule
+          based on: time | sequence | priority
+
 ## Notes
 **Focus:** connection and relationships
 
