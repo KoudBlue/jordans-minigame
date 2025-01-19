@@ -42,10 +42,23 @@ Hosted on [itch.io]()
 
         Communication
         - eyes
+        - responses
         - objects
         - actions
         - schedule
           based on: time | sequence | priority
+
+3.  Player in community
+    Player engages friend|rival
+    Player encounters meowth|eevee|ditto
+
+4.  Introduction
+    []  Loader
+    []  Messages
+        intro: geos, figs, recurs
+        player details
+    []  Pop-ups
+        map change
 
 ## Notes
 **Focus:** connection and relationships
