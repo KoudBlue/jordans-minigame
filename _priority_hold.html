@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Hold</title>
+</head>
+<body>
+    <!-- Game setup -->
+     <script>
+        const game = localStorage.getItem("autosave") ? {
+            loaded: false,
+            start: Boolean(localStorage.getItem("start")),
+            store: JSON.parse(localStorage.getItem("props")),
+            backup: localStorage
+        } : {
+            loaded: false,
+            autosave: false,
+            start: false,
+            store: [],
+            backup: sessionStorage
+        }
+
+        const update_game = (prop) => {
+            game[prop] = !game[prop]
+            switch (prop) {
+                case "loaded":
+                    const game_info = document.getElementById("game-info")
+                    if (game[prop])
+                        game_info.style.display = "none"
+                    else
+                        game_info.style.display = "block"
+                    break;
+                case "autosave":
+                    if (game[prop]) {
+                        const copy = sessionStorage
+                        game.backup = localStorage
+                        game.backup.setItem("autosave", "autosave_on")
+                        for (const prop of game.store)
+                            game.backup.setItem(prop, copy.getItem(prop))
+                    }
+                    else {
+                        const copy = localStorage
+                        game.backup = sessionStorage
+                        for (const prop of game.store)
+                            game.backup.setItem(prop, copy.getItem(prop))
+                        copy.clear()
+                        copy.setItem("autosave", "")
+                    }
+                    break;
+                case "start":
+                    if (game[prop])
+                        game.backup.setItem("start", "start_complete")
+                    break;
+            }
+        }
+     </script>
+
+    <!-- Footer: controls -->
+    <footer>
+        <nav>
+            <div class="spacer"></div>
+            <input id="up-btn" type="button" value="&#8593;" title="Up [key: w]" />
+            <div class="spacer"></div>
+            <input id="lft-btn" type="button" value="&#8592;" title="Left [key: a]" />
+            <div class="spacer"></div>
+            <input id="rgt-btn" type="button" value="&#8594;" title="Right [key: d]" />
+            <div class="spacer"></div>
+            <input id="dn-btn" type="button" value="&#8595;" title="Down [key: s]" />
+            <div class="spacer"></div>
+        </nav>
+        <section id="user-input">
+            <div class="actions">
+                <input id="a-btn" class="space-saver" type="button" value="A" title="A: confirm or activate [key: j]" />
+                <input id="b-btn" class="space-saver" type="button" value="B" title="B: cancel or undo [key: k]" />
+                <input id="i-btn" type="button" value="Inventory" title="View inventory [key: i]" />
+                <input id="c-btn" type="button" value="Contacts" title="View contacts [key: c]" />
+            </div>
+            <div class="lang"></div>
+        </section>
+    </footer>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            border-top: 2px solid #aaa;
+            display: flex;
+            background: #333;
+        }
+
+        input[type=button] {
+            border: 2px solid #aaa;
+            color: #000;
+            background: #eee;
+            box-shadow: inset -2px -3px #000a;
+        }
+
+        input[type=button]:hover,
+        input[type=button]:active {
+            box-shadow: inset 2px 3px #000, inset -2px -3px 4px #000a;
+        }
+
+        nav {
+            padding-right: 12px;
+            border-right: 1px solid white;
+            display: grid;
+            grid-template-columns: repeat(3, 42px);
+            grid-template-rows: repeat(3, 42px);
+        }
+
+        nav input {
+            padding-bottom: 9px;
+            font-size: 28px;
+        }
+
+        #user-input .actions {
+            height: 100%;
+            padding: 0 12px;
+            border-right: 1px solid white;
+            display: grid;
+            grid-template-columns: 42px 42px;
+            grid-template-rows: repeat(3, 42px);
+        }
+
+        .actions input:not(.space-saver) { grid-column: span 2 }
+    </style>
+    <script>
+        /*  Reminder
+            Event listeners have to be attachable and removable for screen transitions
+
+            Actions:
+            1. Confirm / Activate
+            - Ask
+            - Exchange: give / request
+            - Answer
+            2. Cancel
+            3. Menu
+            - Contacts
+            - Inventory
+            - Guide [language manual]
+       */
+    
+        const move = {
+            up: document.getElementById("up-btn"),
+            down: document.getElementById("dn-btn"),
+            left: document.getElementById("lft-btn"),
+            right: document.getElementById("rgt-btn")
+        }
+
+        const actions = {
+            a: document.getElementById("a-btn"),
+            b: document.getElementById("b-btn"),
+            c: document.getElementById("c-btn"),
+            i: document.getElementById("i-btn")
+        }
+
+        /*  When player presses button or key:
+            - press and hold move button/key: continuous movement
+            - press action button/key: toggle
+
+            Press: pointerdown
+            Release: pointerup
+        */
+
+        move.up.addEventListener("pointerdown", () => {})
+        move.up.addEventListener("pointerup", () => {})
+
+        move.down.addEventListener("pointerdown", () => {})
+        move.down.addEventListener("pointerup", () => {})
+
+        move.left.addEventListener("pointerdown", () => {})
+        move.left.addEventListener("pointerup", () => {})
+
+        move.right.addEventListener("pointerdown", () => {})
+        move.right.addEventListener("pointerup", () => {})
+
+        actions.a.addEventListener("pointerdown", () => {})
+        actions.a.addEventListener("pointerup", () => {})
+
+        actions.b.addEventListener("pointerdown", () => {})
+        actions.b.addEventListener("pointerup", () => {})
+
+        actions.c.addEventListener("pointerdown", () => {})
+        actions.c.addEventListener("pointerup", () => {})
+
+        actions.i.addEventListener("pointerdown", () => {})
+        actions.i.addEventListener("pointerup", () => {})
+    </script>
+</body>
+</html>
