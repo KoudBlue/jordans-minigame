@@ -60,6 +60,35 @@ Hosted on [itch.io]()
     []  Pop-ups
         map change
 
+## UI
+Menu
+- name game
+- settings
+- toggle controls
+<!-- not priority -->
+
+Navigation: wasd || arrow buttons
+- up
+- left
+- down
+- right
+
+Actions: zxcv || action buttons
+- confirm [open|activate]
+- cancel
+- contacts
+- inventory
+
+<!-- Communication: t-ijkl || tabs-scroll
+- tabs
+  - craft
+  - towns and directions
+  - contacts -->
+
+### Communication
+- map [zoom|tap]/[-+|ijkl]
+- figs, geos, recurs; contacts [tap|scroll]/[]
+
 ## Notes
 **Focus:** connection and relationships
 

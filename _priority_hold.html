@@ -7,54 +7,77 @@
 </head>
 <body>
     <!-- Game setup -->
-     <script>
-        const game = localStorage.getItem("autosave") ? {
-            loaded: false,
-            start: Boolean(localStorage.getItem("start")),
-            store: JSON.parse(localStorage.getItem("props")),
-            backup: localStorage
-        } : {
-            loaded: false,
-            autosave: false,
-            start: false,
-            store: [],
-            backup: sessionStorage
-        }
+    <script>
+    const game = localStorage.getItem("autosave") ? {
+        loaded: false,
+        start: Boolean(localStorage.getItem("start")),
+        store: JSON.parse(localStorage.getItem("props")),
+        backup: localStorage
+    } : {
+        loaded: false,
+        autosave: false,
+        start: false,
+        store: [],
+        backup: sessionStorage
+    }
 
-        const update_game = (prop) => {
-            game[prop] = !game[prop]
-            switch (prop) {
-                case "loaded":
-                    const game_info = document.getElementById("game-info")
-                    if (game[prop])
-                        game_info.style.display = "none"
-                    else
-                        game_info.style.display = "block"
-                    break;
-                case "autosave":
-                    if (game[prop]) {
-                        const copy = sessionStorage
-                        game.backup = localStorage
-                        game.backup.setItem("autosave", "autosave_on")
-                        for (const prop of game.store)
-                            game.backup.setItem(prop, copy.getItem(prop))
-                    }
-                    else {
-                        const copy = localStorage
-                        game.backup = sessionStorage
-                        for (const prop of game.store)
-                            game.backup.setItem(prop, copy.getItem(prop))
-                        copy.clear()
-                        copy.setItem("autosave", "")
-                    }
-                    break;
-                case "start":
-                    if (game[prop])
-                        game.backup.setItem("start", "start_complete")
-                    break;
-            }
+    const update_game = (prop) => {
+        game[prop] = !game[prop]
+        switch (prop) {
+            case "loaded":
+                const game_info = document.getElementById("game-info")
+                if (game[prop])
+                    game_info.style.display = "none"
+                else
+                    game_info.style.display = "block"
+                break;
+            case "autosave":
+                if (game[prop]) {
+                    const copy = sessionStorage
+                    game.backup = localStorage
+                    game.backup.setItem("autosave", "autosave_on")
+                    for (const prop of game.store)
+                        game.backup.setItem(prop, copy.getItem(prop))
+                }
+                else {
+                    const copy = localStorage
+                    game.backup = sessionStorage
+                    for (const prop of game.store)
+                        game.backup.setItem(prop, copy.getItem(prop))
+                    copy.clear()
+                    copy.setItem("autosave", "")
+                }
+                break;
+            case "start":
+                if (game[prop])
+                    game.backup.setItem("start", "start_complete")
+                break;
         }
-     </script>
+    }
+    </script>
+
+    <!-- Game Intro -->
+    <article id="game-info"></article>
+    <style>
+        #game-info {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+    </style>
+
+    <!-- Game menu -->
+    <button id="toggle-controls">
+        <canvas id="controls-cvs" width="36" height="36"></canvas>
+    </button>
 
     <!-- Footer: controls -->
     <footer>
